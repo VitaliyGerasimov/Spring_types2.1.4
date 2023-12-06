@@ -1,15 +1,16 @@
 package koschei.models;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Wood3 {
-
-    private final Rabbit4 rabbit;
-
+    @Qualifier("rabbit4")
     @Autowired
-    public Wood3(Rabbit4 rabbit) {
+    private  Rabbit4 rabbit;
+
+    public void setRabbit(Rabbit4 rabbit) {
         this.rabbit = rabbit;
     }
 
@@ -17,4 +18,5 @@ public class Wood3 {
     public String toString() {
         return ", на дереве заяц " + rabbit.toString();
     }
+
 }
